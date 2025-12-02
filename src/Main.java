@@ -5,17 +5,17 @@ public class Main {
     static Scanner keyboard = new Scanner(System.in);
 
     public static String getDetails1(String message) {
-        System.out.println(message);
+        System.out.print(message);
         return keyboard.nextLine();
     }
 
     public static int getDetails2( String message) {
-        System.out.println(message);
+        System.out.print(message);
         return keyboard.nextInt();
     }
 
     public static double getDetails3(String message) {
-        System.out.println(message);
+        System.out.print(message);
         return keyboard.nextDouble();
     }
 
@@ -32,28 +32,35 @@ public class Main {
 
         // Cost Calculation object creation
         // Cost analysis Section
-        CostAnalysis analysis = new CostAnalysis();
-        analysis.setAppliancePower(getDetails3("What is your Appliance power usage (kW)"));
-        analysis.setHoursOfUsage(getDetails2("How many hours do you use your Appliance per day"));
-        analysis.calEnergyDailyUsage();
-        analysis.calCostPerDay();
-        analysis.calCostPerWeek();
-        analysis.calCostPerMonth();
-        analysis.calCostPerYear();
+//        CostAnalysis analysis = new CostAnalysis();
+//        analysis.setApplianceName(getDetails1("Enter Appliance Name: "));
+//        analysis.setAppliancePower(getDetails3("What is your Appliance power usage (kW): "));
+//        analysis.setHoursOfUsage(getDetails2("How many hours do you use your Appliance per day: "));
+//        analysis.calEnergyDailyUsage();
+//        analysis.calCostPerDay();
+//        analysis.calCostPerWeek();
+//        analysis.calCostPerMonth();
+//        analysis.calCostPerYear();
 
 
 
         System.out.println("Hello" + user.getFirstName() +"\n "+welcomeMsg.toString());
 
 
-//        user.setFirstName(getDetails1("Enter firstname: "));
-//        user.setLastname(getDetails1("Enter lastname: "));
+        user.setFirstName(getDetails1("Enter firstname: "));
+        user.setLastname(getDetails1("Enter lastname: "));
 //        user.setEmail(getDetails1("Enter your email"));
 //        user.setPostalCode(getDetails1("What is your house postal code?"));
 //        user.setAverageHouseAge(getDetails2("What is the average house old age"));
 //        user.setNoOfHouseHold(getDetails2("What is the number of house holds?"));
 //        user.setNoOfAppliance(getDetails2("How many appliance to do you use?"));
-//        System.out.println(user.toString());
+        System.out.println(user.toString());
+
+
+
+
+
+        // Listing of energy saving tips
 //        for (int i = 0; i < tips.getTipIntro().length; i++) {
 //            System.out.println("Tip " + (i+1) + ":\n " + tips.getTipIntro()[i]);
 //            try{

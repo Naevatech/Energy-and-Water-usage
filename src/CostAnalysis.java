@@ -1,5 +1,6 @@
 import java.text.DecimalFormat;
 public class CostAnalysis {
+    private String ApplianceName;
     private double appliancePower;
     private final double standardTariffPrice =  0.3022;
     private int hoursOfUsage;
@@ -21,6 +22,10 @@ public class CostAnalysis {
         this.hoursOfUsage = hoursOfUsage;
     }
 
+    public void setApplianceName(String applianceName) {
+        ApplianceName = applianceName;
+    }
+
     protected void calEnergyDailyUsage() {
         energyUsage = appliancePower * hoursOfUsage;
         System.out.println("The energy usage per day is: "+ df.format(appliancePower * hoursOfUsage) + "kWh/day");
@@ -38,5 +43,6 @@ public class CostAnalysis {
     protected void calCostPerYear() {
         System.out.println("The energy cost in a Year: "+ " £" + df.format(dialyEnergyCost * 365) );
     }
+
 
 }

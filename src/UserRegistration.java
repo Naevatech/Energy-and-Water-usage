@@ -57,14 +57,6 @@ public class UserRegistration {
 
     @Override
     public String toString() {
-        return "UserRegistration{" +
-                "firstName='" + firstName + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", email='" + email + '\'' +
-                ", averageHouseAge=" + averageHouseAge +
-                ", noOfHouseHold=" + noOfHouseHold +
-                ", postalCode=" + postalCode +
-                ", noOfAppliance=" + noOfAppliance +
-                '}';
+        return "hello " + getFirstName();
     }
 }
