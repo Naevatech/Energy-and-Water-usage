@@ -54,7 +54,38 @@ public class Main {
 //        user.setAverageHouseAge(getDetails2("What is the average house old age"));
 //        user.setNoOfHouseHold(getDetails2("What is the number of house holds?"));
 //        user.setNoOfAppliance(getDetails2("How many appliance to do you use?"));
-        System.out.println(user.toString());
+
+        //welcome page after the user register;
+        welcomeMsg.welcomeUser(user.getFirstName());
+
+        //welcome Options of what to do
+        int taskOption;
+        System.out.println("1. Add Appliance");
+        System.out.println("2. View Appliance");
+        System.out.println("3. Exit");
+        System.out.println("================================");
+        do {
+            System.out.print("Enter the Option you want to perform: ");
+            taskOption = keyboard.nextInt();
+            System.out.println("1. Add Appliance");
+            System.out.println("2. View Appliance");
+            System.out.println("3. Exit");
+            if(taskOption == 1) {
+                //Cost Calculation object creation
+                // Cost analysis Section
+                CostAnalysis1 analysis = new CostAnalysis1();
+                analysis.setApplianceName(getDetails1("Enter Appliance Name: "));
+                analysis.setAppliancePower(getDetails3("What is your Appliance power usage (kW): "));
+                analysis.setHoursOfUsage(getDetails2("How many hours do you use your Appliance per day: "));
+                analysis.calEnergyDailyUsage();
+                analysis.calCostPerDay();
+                analysis.calCostPerWeek();
+                analysis.calCostPerMonth();
+                analysis.calCostPerYear();
+            }
+        } while (taskOption !=3);
+
+//        System.out.println(user.toString());
 
 
 
