@@ -6,7 +6,6 @@ public class Main {
 
     public static String getDetails1(String message) {
         System.out.println(message);
-//        return keyboard.nextLine();
         return keyboard.next();
     }
 
@@ -41,9 +40,9 @@ public class Main {
         //welcome page after the user register;
         welcomeMsg.welcomeUser(user.getFirstName());
 
-        CostAnalysis1 analysis = new CostAnalysis1();
+        EnergyAndCostAnalysis analysis = new EnergyAndCostAnalysis();
         analysis.setNoOfAppliance(getDetails2("How many appliance do you have: "));
-        CostAnalysis1 analysis1 = new CostAnalysis1(analysis.getNoOfAppliance());
+        EnergyAndCostAnalysis energyAndCost = new EnergyAndCostAnalysis(analysis.getNoOfAppliance());
 
         int check;
         do {
@@ -51,41 +50,38 @@ public class Main {
             System.out.println("2. View Appliance");
             System.out.println("3. Energy Analysis");
             System.out.println("4. Cost Analysis");
-            System.out.println("5. Exit");
+            System.out.println("5. Tips");
+            System.out.println("6. Exist");
             System.out.println("Enter your option");
             check = keyboard.nextInt();
             if(check == 1) {;
                 String applianceName = getDetails1("Enter Appliance Name: ");
                 double appliancePowerUsage = getDetails3("What is your Appliance power usage (kW): ");
                 int applianceHourOfUsagePerDay = getDetails2("How many hours do you use your Appliance per day: ");
-                analysis1.addAppliance(applianceName, appliancePowerUsage, applianceHourOfUsagePerDay);
+                energyAndCost.addAppliance(applianceName, appliancePowerUsage, applianceHourOfUsagePerDay);
             }
             if (check == 2) {
-                analysis1.viewAppliance();
+                energyAndCost.viewAppliance();
             }
             if (check == 3) {
-                analysis1.analyzeEnergyAndTips();
+                energyAndCost.analyzeEnergyAndTips();
             }
             if (check == 4) {
-                analysis1.energyCostAnalysis();
+                energyAndCost.energyCostAnalysis();
             }
-        } while (check !=5);
-
-
-
-
-
-        // Listing of energy saving tips
-//        for (int i = 0; i < tips.getTipIntro().length; i++) {
-//            System.out.println("Tip " + (i+1) + ":\n " + tips.getTipIntro()[i]);
-//            try{
-//                Thread.sleep(6000);
-//            }catch (InterruptedException e){
-//                System.out.println("interrupted while waiting");
-//                Thread.currentThread().interrupt(); //restore interrupt status
-//            }
-//        }
-
+            if (check == 5) {
+                //Listing of energy saving tips
+                for (int i = 0; i < tips.getTipIntro().length; i++) {
+                    System.out.println("Tip " + (i+1) + ":\n " + tips.getTipIntro()[i]);
+                    try{
+                        Thread.sleep(6000);
+                    }catch (InterruptedException e){
+                        System.out.println("interrupted while waiting");
+                        Thread.currentThread().interrupt(); //restore interrupt status
+                    }
+                }
+            }
+        } while (check !=6);
     }
 }
 

@@ -1,7 +1,6 @@
 import java.text.DecimalFormat;
-import java.util.Arrays;
 import java.util.Scanner;
-public class CostAnalysis1 {
+public class EnergyAndCostAnalysis {
     private String ApplianceName;
     private int noOfAppliance;
     private double appliancePower;
@@ -18,7 +17,7 @@ public class CostAnalysis1 {
     DecimalFormat df = new DecimalFormat("0.00");
     static Scanner keyboard = new Scanner(System.in);
 
-    CostAnalysis1() {}
+    EnergyAndCostAnalysis() {}
 //
 //    CostAnalysis(double appliancePower, int hoursOfUsage) {
 //        this.appliancePower = appliancePower;
@@ -40,7 +39,7 @@ public class CostAnalysis1 {
         return keyboard.nextDouble();
     }
 
-    CostAnalysis1(int noOfAppliance){
+    EnergyAndCostAnalysis(int noOfAppliance){
         applianceList = new Appliance[noOfAppliance];
 
     }
