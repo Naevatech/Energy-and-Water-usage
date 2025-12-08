@@ -39,7 +39,9 @@ public class Checking {
         do {
             System.out.println("1. Add Appliance");
             System.out.println("2. View Appliance");
-            System.out.println("3. Exit");
+            System.out.println("3. Energy Analysis");
+            System.out.println("4. Cost Analysis");
+            System.out.println("5. Exit");
             System.out.println("Enter your option");
             check = keyboard.nextInt();
             if(check == 1) {;
@@ -49,8 +51,14 @@ public class Checking {
                 analysis1.addAppliance(applianceName, appliancePowerUsage, applianceHourOfUsagePerDay);
             }
             if (check == 2) {
+                analysis1.viewAppliance();
+            }
+            if (check == 3) {
+                analysis1.analyzeEnergyAndTips();
+            }
+            if (check == 4) {
 
             }
-        } while (check !=3);
+        } while (check !=5);
     }
 }
