@@ -14,6 +14,7 @@ public class CostAnalysis1 {
     private  double totalYearlyUsage;
     private double totalWeeklyUsage;
     private double totalDailyUsage;
+//    private double energyUsagePerday;
     DecimalFormat df = new DecimalFormat("0.00");
     static Scanner keyboard = new Scanner(System.in);
 
@@ -51,6 +52,7 @@ public class CostAnalysis1 {
         }
             applianceList[index] = new Appliance(applianceName, appliancePower, hoursOfUsage);
             index++;
+            System.out.println("\uD83C\uDF89 Appliance added Successfull.\n");
     }
 
     public void viewAppliance() {
@@ -72,7 +74,7 @@ public class CostAnalysis1 {
             double weeklyUsage = dailyUsage * 7;
             double monthlyUsage = dailyUsage*30;
             double yearlyUsage = dailyUsage*365;
-
+//            energyUsagePerday = appliancePower*applianceHour;
             totalYearlyUsage +=yearlyUsage;
             totalWeeklyUsage +=weeklyUsage;
             totalDailyUsage +=dailyUsage;
@@ -94,7 +96,7 @@ public class CostAnalysis1 {
             System.out.println("Based on the information you’ve provided, you are using " + df.format(totalYearlyUsage) + "per year on your electrical appliance.");
             //Low usage
             if (totalYearlyUsage <= 1800.00) {
-                keyboard.nextLine();
+//                keyboard.nextLine();
                 System.out.println("===========================================================================================");
                 System.out.println("This is less than the average appliance usage in Northern Ireland.");
                 System.out.println("Please note this is a general estimate of how much electrical appliances cost to run.\n ");
@@ -105,7 +107,7 @@ public class CostAnalysis1 {
             }
             //Average usage
             if (totalYearlyUsage >=1800.00 && totalYearlyUsage <=2700.00) {
-                keyboard.nextLine();
+//                keyboard.nextLine();
                 System.out.println("===========================================================================================");
                 System.out.println("This falls between the average appliance usage in Northern Ireland.");
                 System.out.println("Please note this is a general estimate of how much electrical appliances energy run.\n ");
@@ -127,7 +129,62 @@ public class CostAnalysis1 {
             }
         }else {
             System.out.println("No appliance Added yet, kindly add your appliance.");
+            return;
         }
+
+    }
+
+    public void energyCostAnalysis() {
+        double costPerYear=0, costPerWeek=0, costPerDay=0, energyUsagePerday=0;
+        for (int i = 0; i < index; i++) {
+            Appliance myAppliance = applianceList[i];
+            double appliancePower = myAppliance.getAppliancePower();
+            int applianceHour = myAppliance.getHoursOfUsage();
+            energyUsagePerday += applianceHour*appliancePower;
+            costPerDay += energyUsagePerday*standardTariffPrice;
+            costPerWeek += costPerDay*7;
+//            double costPerMonth += costPerDay*30;
+            costPerYear += costPerDay*365;
+        }
+
+
+        if (energyUsagePerday != 0 ) {
+            System.out.println("\nBased on the information you’ve provided, you are spending " + "£"+df.format(costPerYear)+"p " + "per year on your electrical appliance.");
+            // Cost low usage
+            if (costPerYear <= 579.60) {
+                System.out.println("===========================================================================================");
+                System.out.println("This is less than the average appliance usage in Northern Ireland.");
+                System.out.println("Please note this is a general estimate of how much electrical appliances cost to run.\n ");
+                System.out.println("===========================================================================================");
+                System.out.println("£"+df.format(costPerDay) +"p\t\t\t "+"£"+df.format(costPerWeek) +"p\t\t" +"£"+df.format(costPerYear) +"p\t\t");
+                System.out.println("per day less  \t\t per week less \t\t per year less");
+                System.out.println("You may be able to save more energy by following our recommendations or by switching supplier.\n");
+            }
+            // Cost Average usage
+            if (costPerYear >= 579.60 && costPerYear <= 927.36) {
+                System.out.println("===========================================================================================");
+                System.out.println("This is between the average appliance usage in Northern Ireland.");
+                System.out.println("Please note this is a general estimate of how much electrical appliances cost to run.\n ");
+                System.out.println("===========================================================================================");
+                System.out.println("£"+df.format(costPerDay) +"p\t\t\t "+"£"+df.format(costPerWeek) +"p\t\t" +"£"+df.format(costPerYear) +"p\t\t");
+                System.out.println("per day less  \t per week \t per year");
+                System.out.println("You may be able to save even more by following our recommendations or by switching supplier.\n");
+            }
+            // cost high usage
+            if ( costPerYear > 1420.02) {
+                System.out.println("===========================================================================================");
+                System.out.println("This is more than the average appliance usage in Northern Ireland.");
+                System.out.println("Please note this is a general estimate of how much electrical appliances cost to run. ");
+                System.out.println("===========================================================================================");
+                System.out.println("£"+df.format(costPerDay) +"p\t\t "+"£"+df.format(costPerWeek) +"p\t\t" +"£"+df.format(costPerYear) +"p\t\t");
+                System.out.println("per day more  \t per week more \t\t per year more");
+                System.out.println("You may be able to save even more energy by following our recommendations or by switching supplier.\n");
+            }
+        }else {
+            System.out.println("No appliance Added yet, kindly add your appliance.");
+            return;
+        }
+
 
     }
 
