@@ -11,14 +11,11 @@ public class UserRegistration {
     UserRegistration() {
     }
 
-    UserRegistration(String first_Name, String last_name, String user_email, int average_houseAge, int no_of_house_hold, String postal_code, int no_of_appliance) {
+    UserRegistration(String first_Name, String last_name, String user_email,  String postal_code) {
         this.firstName = first_Name;
         this.lastname = last_name;
         this.email = user_email;
-        this.averageHouseAge = average_houseAge;
-        this.noOfHouseHold = no_of_house_hold;
         this.postalCode = postal_code;
-        this.noOfAppliance = no_of_appliance;
     }
 
 
@@ -39,20 +36,8 @@ public class UserRegistration {
         this.email = email;
     }
 
-    public void setAverageHouseAge(int averageHouseAge) {
-        this.averageHouseAge = averageHouseAge;
-    }
-
-    public void setNoOfHouseHold(int noOfHouseHold) {
-        this.noOfHouseHold = noOfHouseHold;
-    }
-
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
-    }
-
-    public void setNoOfAppliance(int noOfAppliance) {
-        this.noOfAppliance = noOfAppliance;
     }
 
     @Override

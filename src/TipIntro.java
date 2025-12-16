@@ -1,31 +1,42 @@
+// TIPS ON HOW TO REDUCE ENERGY USAGE AND COST
 import java.util.Arrays;
 
 public class TipIntro {
-    private String [] tipIntro =  new String[5];
+    private String [] tipIntro =  new String[10];
     protected TipIntro() {
-        tipIntro[0]="All:Turn idle appliance off\n" +
-                "Turn appliance off at the plug to save an average of £30 a year";
+        tipIntro[0]="All Appliances: Turn idle appliances off\n" +
+                "Turn appliances off at the plug to save an average of £30 per year.";
 
-        tipIntro[1] = "Dryer:Use smooth ducts for exhaust\n" +
-                "Your dryer will use more energy if it has " +
-                "to push exhaust air past the pleats found in " +
-                "flexible ducts. Smooth ducts produce less turbulence" +
-                "and require less energy to exhaust air";
+        tipIntro[1] = "Dryer: Use smooth ducts for exhaust\n" +
+                "Smooth ducts reduce air resistance, helping your dryer use less energy.";
 
-        tipIntro[2] = "Heater:Install an A-rated boiler\n" +
-                "Based on fuel prices in April 2017, a detached " +
-                "house upgrading from a G-rated boiler could save up to £320 a year";
+        tipIntro[2] = "Heating: Install an A-rated boiler\n" +
+                "Upgrading from a G-rated boiler could save up to £320 per year.";
 
-        tipIntro[3] = "Heater:Invest in double glazing\n" +
-                "If your home is entirely single glazed, you could save as " +
-                "much as £160 a year by installing A-rated double glazing. " +
-                "Double glazing will not only insulate your home from the " +
-                "cold and it will help you reduce your heating bills, it'll help keep out noise too.";
+        tipIntro[3] = "Heating: Invest in double glazing\n" +
+                "Double glazing improves insulation and can save up to £160 per year.";
 
-        tipIntro[4] = "Washing machine:Hot, warm or cold cycles?\n" +
-                "Washing at 30 degrees rather than 40 degrees can be a " +
-                "third cheaper, meaning savings of up to £52 a year. Not " +
-                "all laundry needs to be washed in hot or even warm water.";
+        tipIntro[4] = "Washing Machine: Hot, warm or cold cycles?\n" +
+                "Washing at 30°C instead of 40°C can save up to £52 per year.";
+
+        tipIntro[5] = "Lighting: Switch to LED bulbs\n" +
+                "LED bulbs use up to 80% less energy than traditional bulbs.";
+
+        tipIntro[6] =
+                "Refrigerator: Keep the door closed\n" +
+                        "Opening the fridge less often helps reduce energy consumption.";
+
+        tipIntro[7] =
+                "Cooking: Use lids on pots\n" +
+                        "Using lids allows food to cook faster and uses less energy.";
+
+        tipIntro[8] =
+                "Electronics: Enable power-saving mode\n" +
+                        "Power-saving settings reduce electricity use when devices are idle.";
+
+        tipIntro[9] =
+                "Water Heating: Take shorter showers\n" +
+                        "Reducing shower time lowers hot water and energy usage.";
     }
 
     public String[] getTipIntro() {

@@ -1,3 +1,4 @@
+//APPLIANCE ARRAY INSTANCE
 public class Appliance {
     private String ApplianceName;
     private double appliancePower;

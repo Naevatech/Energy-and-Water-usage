@@ -1,10 +1,11 @@
 import java.text.DecimalFormat;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 public class EnergyAndCostAnalysis {
     private String ApplianceName;
     private int noOfAppliance;
     private double appliancePower;
-    private final double standardTariffPrice =  0.3022;
+    private final double STANDARDTARIFFPRICE =  0.3022;
     private int hoursOfUsage;
     private double energyUsage = 0;
     private double dialyEnergyCost = 0;
@@ -18,32 +19,14 @@ public class EnergyAndCostAnalysis {
     static Scanner keyboard = new Scanner(System.in);
 
     EnergyAndCostAnalysis() {}
-//
-//    CostAnalysis(double appliancePower, int hoursOfUsage) {
-//        this.appliancePower = appliancePower;
-//        this.hoursOfUsage = hoursOfUsage;
-//    }
 
-    public static String getDetails1(String message) {
-        System.out.println(message);
-        return keyboard.next();
-    }
-
-    public static int getDetails2( String message) {
-        System.out.print(message);
-        return keyboard.nextInt();
-    }
-
-    public static double getDetails3(String message) {
-        System.out.print(message);
-        return keyboard.nextDouble();
-    }
 
     EnergyAndCostAnalysis(int noOfAppliance){
         applianceList = new Appliance[noOfAppliance];
 
     }
 
+    // ADD APPLIANCE
     public void addAppliance(String applianceName, double appliancePower, int hoursOfUsage) {
         if (index >= applianceList.length) {
             System.out.println("Appliance is Full, Can not add more");
@@ -54,6 +37,7 @@ public class EnergyAndCostAnalysis {
             System.out.println("\uD83C\uDF89 Appliance added Successfull.\n");
     }
 
+    //VIEW APPLIANCE
     public void viewAppliance() {
         System.out.println("\n============Energy Usage Analysis===========");
         System.out.println("------------------------------------------------------");
@@ -89,7 +73,8 @@ public class EnergyAndCostAnalysis {
 //        System.out.println(total);
     }
 
-    public void analyzeEnergyAndTips() {
+    //ANALYSE ENERGY
+    public void analyzeEnergy() {
 
         if (totalDailyUsage !=0 || totalYearlyUsage!=0 || totalWeeklyUsage!=0) {
             System.out.println("Based on the information you’ve provided, you are using " + df.format(totalYearlyUsage) + "per year on your electrical appliance.");
@@ -133,6 +118,7 @@ public class EnergyAndCostAnalysis {
 
     }
 
+    // ANALYSING THE COST
     public void energyCostAnalysis() {
         double costPerYear=0, costPerWeek=0, costPerDay=0, energyUsagePerday=0;
         for (int i = 0; i < index; i++) {
@@ -140,7 +126,7 @@ public class EnergyAndCostAnalysis {
             double appliancePower = myAppliance.getAppliancePower();
             int applianceHour = myAppliance.getHoursOfUsage();
             energyUsagePerday += applianceHour*appliancePower;
-            costPerDay += energyUsagePerday*standardTariffPrice;
+            costPerDay += energyUsagePerday*STANDARDTARIFFPRICE;
             costPerWeek += costPerDay*7;
 //            double costPerMonth += costPerDay*30;
             costPerYear += costPerDay*365;
@@ -211,8 +197,8 @@ public class EnergyAndCostAnalysis {
         System.out.println("The energy usage per day is: "+ df.format(appliancePower * hoursOfUsage) + "kWh/day");
     }
     protected void calCostPerDay() {
-        dialyEnergyCost = energyUsage * standardTariffPrice;
-        System.out.println("The energy cost per day is: "+ " £" + df.format(standardTariffPrice * energyUsage) );
+        dialyEnergyCost = energyUsage * STANDARDTARIFFPRICE;
+        System.out.println("The energy cost per day is: "+ " £" + df.format(STANDARDTARIFFPRICE * energyUsage) );
     }
     protected void calCostPerWeek() {
         System.out.println("The energy cost per Week is: " + " £" +  df.format(dialyEnergyCost * 7) );

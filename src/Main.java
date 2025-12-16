@@ -4,19 +4,41 @@ import java.util.Scanner;
 public class Main {
     static Scanner keyboard = new Scanner(System.in);
 
+
     public static String getDetails1(String message) {
         System.out.println(message);
-        return keyboard.next();
+        try {
+            return keyboard.next();
+        } catch (IllegalStateException e) {
+            System.out.println("⚠️ Could not read text input. Please try again.");
+            return ""; // safe fallback
+        }
+    }
+
+    public static int getDetails2(String message) {
+        while (true) {
+            System.out.print(message);
+            try {
+                int value = keyboard.nextInt();
+                return value;
+            } catch (IllegalStateException e) {
+                System.out.println("⚠️ Invalid number. Please enter a whole number.");
+                keyboard.nextLine(); // clear bad token
+            }
+        }
     }
 
     public static double getDetails3(String message) {
-        System.out.print(message);
-        return keyboard.nextDouble();
-    }
-
-    public static int getDetails2( String message) {
-        System.out.println(message);
-        return keyboard.nextInt();
+        while (true) {
+            System.out.print(message);
+            try {
+                double value = keyboard.nextDouble();
+                return value;
+            } catch (IllegalStateException e) {
+                System.out.println("⚠️ Invalid number. Please enter a decimal number (e.g., 1.5).");
+                keyboard.nextLine(); // clear bad token
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -45,6 +67,7 @@ public class Main {
         EnergyAndCostAnalysis energyAndCost = new EnergyAndCostAnalysis(analysis.getNoOfAppliance());
 
         int check;
+        // LIST OF OPTION THAT CAN BE PERFORM ON THE APP
         do {
             System.out.println("1. Add Appliance");
             System.out.println("2. View Appliance");
@@ -64,7 +87,7 @@ public class Main {
                 energyAndCost.viewAppliance();
             }
             if (check == 3) {
-                energyAndCost.analyzeEnergyAndTips();
+                energyAndCost.analyzeEnergy();
             }
             if (check == 4) {
                 energyAndCost.energyCostAnalysis();
@@ -77,7 +100,7 @@ public class Main {
                         Thread.sleep(6000);
                     }catch (InterruptedException e){
                         System.out.println("interrupted while waiting");
-                        Thread.currentThread().interrupt(); //restore interrupt status
+                        Thread.currentThread().interrupt();
                     }
                 }
             }
